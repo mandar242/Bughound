@@ -94,13 +94,13 @@
 
 		if (mysqli_num_rows($result) == 0){
 			echo "<SCRIPT type='text/javascript'>
-				alert('Area not in database);
-				window.location.replace('../area/area.php');
+				alert('Area not found!!);
+				window.location.replace('areaMain.php');
 				</SCRIPT>";	
 		}	
 		else if(!checkLevel($minLevel)) {
 			echo "<SCRIPT type='text/javascript'>
-				window.location.replace('../area/update_area.php?area_id=$id');
+				window.location.replace('updateArea.php?area_id=$id');
 				</SCRIPT>";	
 		}
 		else {
@@ -109,7 +109,7 @@
 				echo("Error description: " . mysqli_error($con));
 			}
 			else {
-				header("Location: ../area/area.php");	
+				header("Location: areaMain.php");	
 			}	
 		}		
 		die();	
