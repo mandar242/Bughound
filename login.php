@@ -4,20 +4,25 @@
     <head>
         <meta charset="UTF-8">
         <title>Login Page</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     </head>
 
     <body>    
-        <h1>Login Page</h1>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+        <h1>Bug Hound Login</h1>
         <form action="validateLogin.php" method="post" onsubmit="return validate(this)">
-            <table>
-                <tr><td>Username:</td><td><input type="Text" name="username"</td></tr> 
-                <tr><td>Password:</td><td><input type="Text" name="password"</td></tr> 
-            </table>
+            
+            <input type="Text" name ="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Username">
+           
+            <input type="password" name ="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Password">
+            <small id="emailHelp" class="form-text text-muted">We'll never share your data with anyone else.</small>
+            
+            <input type="submit" class="btn btn-primary btn-lg" value ="Submit" name="Submit">
+            <input type="reset" class="btn btn-secondary btn-lg" value ="Reset" name="Reset">
 
-            <input type="submit" name="Submit" value="Submit">
-
-			<input type="reset" name="Reset" value="Reset">
-
+        </div>
+    </div>
         </form>
 
         <script language=Javascript>
