@@ -3,8 +3,12 @@
     <head>
         <meta charset="UTF-8">
         <title>Update Employee</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     </head>
     <body>
+    <div class= "jumbotron">
+		<div class= "container">
+        <h1>Update Employee Information</h1>
         <?php
             include 'validateUser.php';	
             checkLogin();
@@ -34,11 +38,11 @@
             <table>
 				<input type="hidden" name="ID" value="<?php echo htmlspecialchars($id); ?>">
 				<tr><td>Name:</td><td>
-                    <input type="Text" name="name" value="<?php echo htmlspecialchars($name); ?>"</td></tr>
+                    <input type="Text" name="name"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Name" value="<?php echo htmlspecialchars($name); ?>"</td></tr>
                 <tr><td>Username:</td><td>
-                    <input type="Text" name="username" value="<?php echo htmlspecialchars($username); ?>"</td></tr>
+                    <input type="Text" name="username"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter UserName" value="<?php echo htmlspecialchars($username); ?>"</td></tr>
                 <tr><td>Password:</td><td>
-                    <input type="Password" name="password" value="<?php echo htmlspecialchars($password); ?>"</td></tr>
+                    <input type="Password" name="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Password"  value="<?php echo htmlspecialchars($password); ?>"</td></tr>
 				<tr><td>Userlevel:</td><td>
 					<select type="number" name="userlevel" size=1 value="4">
 					  <option value="1" <?php if($level == 1) { ?> selected="selected" <?php } ?> >user</option>
@@ -46,11 +50,11 @@
 					</select></td>
 				</tr>
             </table>
-            <input type="submit" name="submit" value="Next">
+            <input type="submit" name="submit" class="btn btn-primary btn-lg" value="Next">
         </form>
-        <p><form action="delete.php" method="post">
-            <input type="hidden" name="employee_id" value="<?php echo htmlspecialchars($id); ?>">
-            <input type="submit" name="Delete employee" value="Delete">
+        <form action="deleteUtil.php" method="post">
+            <input type="hidden" name="employee_id" class="btn btn-primary btn-lg" value="<?php echo htmlspecialchars($id); ?>">
+            <br> <input type="submit" name="Delete employee"class="btn btn-primary btn-lg"  value="Delete">
         </form>
         <script language=Javascript>
             function validate(theform) {
@@ -77,11 +81,13 @@
                 return true;
             }
 		</script>
-        <p><INPUT type="button" value="Return Home" id=button1 name=button1 onclick="go_home()">
+        <br><INPUT type="button" value="Return Home" id=button1 name=button1 class="btn btn-primary btn-lg" onclick="go_home()">
         <script language=Javascript>
             function go_home() {
                 window.location.replace("addEmployee.php");
             }
         </script>    
+        </div>
+        </div>
     </body>
 </html>

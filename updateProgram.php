@@ -3,8 +3,12 @@
     <head>
         <meta charset="UTF-8">
         <title>Update Program</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     </head>
     <body>
+    <div class= "jumbotron">
+    <div class= "container">
+    <h1>Update Program Information</h1>
         <?php
             include 'validateUser.php';	
             checkLogin();
@@ -27,16 +31,17 @@
         <form action="updateUtil.php" method="post" onsubmit="return validate(this)">
             <input type="hidden" name="id" value="<?php echo htmlspecialchars($id); ?>">
             <table>
-                <tr><td>Name:</td><td><input type="Text" name="program_name" value="<?php echo htmlspecialchars($program_name); ?>"</td></tr>
+                <tr><td>Name:  &nbsp&nbsp&nbsp&nbsp</td><td><input type="Text" name="program_name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Name" value="<?php echo htmlspecialchars($program_name); ?>"</td></tr>
             </table>
             <table>
-                <tr><td>Release:</td><td><input type="Number" name="release" value="<?php echo htmlspecialchars($release); ?>"</td></tr>
+                <tr><td>Release: &nbsp&nbsp</td><td><input type="Number" name="release" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Name" value="<?php echo htmlspecialchars($release); ?>"</td></tr>
             </table>
-            <input type="submit" name="submit" value="Submit">
+            <br>
+            <input type="submit" name="submit" class="btn btn-primary btn-lg" value="Submit">
         </form>
-        <p><form action="deleteUtil.php" method="post">
-            <input type="hidden" name="program_id" value="<?php echo htmlspecialchars($id); ?>">
-            <input type="submit" name="delete" value="Delete">
+        <form action="deleteUtil.php" method="post">
+            <input type="hidden" name="program_id" class="btn btn-primary btn-lg" value="<?php echo htmlspecialchars($id); ?>">
+            <br><input type="submit" name="delete" class="btn btn-primary btn-lg" value="Delete">
         </form>
         <script language=Javascript>
 
@@ -52,11 +57,13 @@
             }
         </script>
 
-        <p><INPUT type="button" value="Home" id=button1 name=button1 onclick="go_home()">
+        <p><br><INPUT type="button" value="Home" id=button1 name=button1 class="btn btn-primary btn-lg" onclick="go_home()">
         <script language=Javascript>
             function go_home() {
                 document.location.href='programMain.php';
             }
+            </div>
+            </div>
 
 </script>    
     </body>

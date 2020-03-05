@@ -1,11 +1,14 @@
 <html>
 	<head>
 		<meta charset = "UTF-8">
-		<title>Bughound main</title>
+		<title>Bughound</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	</head>
 
 	<body>
-		<h1>Bughound</h1>
+	<div class= "jumbotron">
+		<div class= "container">
+		<h1>Welcome to Bughound</h1>
 		<?php
 			include 'validateUser.php';
 			checkLogin();
@@ -24,23 +27,27 @@
 				//display login window after successful logout
 			}
 		</script>
-	
 		<table>
 			<tr><td>
-				<input type="button" onclick="window.location.href = 'dispEmployee.php';" value="Edit Employees", id="bug"/>		
+				<input type="button" onclick="window.location.href = 'dispEmployee.php';" class="btn btn-primary btn-lg" value="Edit Employees", id="bug"/>		
+				&nbsp
+				<input type="button" onclick="window.location.href = 'programMain.php';" class="btn btn-primary btn-lg" value="Edit Programs", id="bug"/>		
 			</td></tr>
-			
+			<br>
 			<tr><td>
-				<input type="button" onclick="window.location.href = 'programMain.php';" value="Edit Programs", id="bug"/>		
-			</td></tr>
-			
-			<tr><td>
-				<input type="button" onclick="window.location.href = 'areaMain.php';" value="Edit Areas", id="bug"/>		
-			</td></tr>
+			<br>
+				<input type="button" onclick="window.location.href = 'areaMain.php';" class="btn btn-primary btn-lg" value="Edit Areas", id="bug"/>		
+				&nbsp
+				&nbsp
+				&nbsp
+				&nbsp
+				&nbsp
+				&nbsp
 
-			<tr><td>
-				<input type="button" onclick="UserLogOut()" value="Logout" id=logout/>
+				<input type="button" onclick="UserLogOut()" class="btn btn-primary btn-lg" value="Logout"  id=logout/>
 			</td></tr>
 
 		</table>
+		</div>
+		</div>
 	</body>
