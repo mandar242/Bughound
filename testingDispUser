@@ -1,0 +1,6 @@
+//testing display user login 
+//else condition inside checkLogin() function
+
+if(!isset($_SESSION["username"])) {
+				
+}

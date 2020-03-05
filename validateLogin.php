@@ -17,8 +17,7 @@
 		$row = mysqli_fetch_array($result);
 		$user_level = $row['user_level'];
 		$employee_id = $row['employee_id'];
-		//$cookie_name = "user_level";
-		//set(cookie_name, user_level,time()+3600 , '/');
+
 		
 		session_start();
 

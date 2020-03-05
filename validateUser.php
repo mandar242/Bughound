@@ -6,7 +6,7 @@
 			alert('User not logged in!!!!');
 			document.location.href='/bughound544/login.php';
 			</SCRIPT>";	
-		}	
+		}
 	}
 	function isAdmin() {
 		$user_level =  (int)$_SESSION["user_level"];
