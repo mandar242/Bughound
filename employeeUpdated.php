@@ -9,7 +9,7 @@
         <h2>
             <?php
                 include 'validateUser.php';	
-                isLoggedIn();
+                checkLogin();
 				$id = $_POST['ID'];
                 $name = $_POST['name'];
                 $username = $_POST['username'];

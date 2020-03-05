@@ -7,7 +7,7 @@
     <body>
         <?php
             include 'validateUser.php';	
-            isLoggedIn();
+            checkLogin();
 			$id = $_GET['employee_id'];
 			$name;
 			$username;
