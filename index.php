@@ -35,7 +35,7 @@
 			</td></tr>
 			
 			<tr><td>
-				<input type="button" onclick="window.location.href = './area/area.php';" value="Edit Areas", id="bug"/>		
+				<input type="button" onclick="window.location.href = 'areaMain.php';" value="Edit Areas", id="bug"/>		
 			</td></tr>
 
 			<tr><td>
