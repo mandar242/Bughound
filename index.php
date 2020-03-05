@@ -16,11 +16,10 @@
 			function UserLogOut()
 			{
 				//delete all cookies
-				document.cookie.split(";").forEach(function(f)
-				{
-					document.cookie = f.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date.toUTCString() + ";path=/");
+				document.cookie.split(";").forEach(function(c) { 
+					document.cookie = c.replace(/^ +/, "").replace(/=.*/, 
+						"=;expires=" + new Date().toUTCString() + ";path=/"); 
 				});
-
 				window.location.replace("login.php")
 				//display login window after successful logout
 			}
@@ -32,7 +31,7 @@
 			</td></tr>
 			
 			<tr><td>
-				<input type="button" onclick="window.location.href = './program/program.php';" value="Edit Programs", id="bug"/>		
+				<input type="button" onclick="window.location.href = 'programMain.php';" value="Edit Programs", id="bug"/>		
 			</td></tr>
 			
 			<tr><td>
@@ -40,7 +39,7 @@
 			</td></tr>
 
 			<tr><td>
-				<input type="button" onclick="UserLogOut()" value="Log Out" id="logout"/>
+				<input type="button" onclick="UserLogOut()" value="Logout" id=logout/>
 			</td></tr>
 
 		</table>
