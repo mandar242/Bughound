@@ -12,7 +12,7 @@
 	function dispCurrentUser()
 	{
 		if(isset($_SESSION['login']) && isset($_SESSION["username"])) {
-			printf("%s Logged in",$_SESSION["username"]); 			
+			printf("%s Logged in as: ",$_SESSION["username"]); 			
 		}
 	}
 	function isAdmin() {
