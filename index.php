@@ -12,6 +12,7 @@
 		<?php
 			include 'validateUser.php';
 			checkLogin();
+			$isadmin= isAdmin();
 		?>
 
 		<script language=Javascript>
@@ -26,24 +27,43 @@
 				window.location.replace("login.php")
 				//display login window after successful logout
 			}
+
+			function dbMainAccess(element)
+			{	
+				isadmin = element.getAttribute("data-isadmin");
+				if(isadmin==true)
+				{
+						window.location.href = 'dbMain.php';
+				}
+				else
+				{
+					alert('Not Admin!!!!');
+					window.location.replace('index.php');
+				}
+				
+			}
+
+			function addBug()
+			{	
+				//window.location.href = 'dbMain.php';
+
+				//window.location.href = 'index.php';
+			}
 		</script>
 		<table>
 			<tr><td>
-				<input type="button" onclick="window.location.href = 'dispEmployee.php';" class="btn btn-primary btn-lg" value="Employees", id="bug"/>		
-				&nbsp
-				<input type="button" onclick="window.location.href = 'programMain.php';" class="btn btn-primary btn-lg" value="Programs", id="bug"/>		
+				<input type="button" onclick="addBug()" class="btn btn-primary btn-lg" value="Add Bug", id="bug"/>		
 			</td></tr>
 			<br>
 			<tr><td>
 			<br>
-				<input type="button" onclick="window.location.href = 'areaMain.php';" class="btn btn-primary btn-lg" value="Areas", id="bug"/>		
+				<input type="button" onclick="dbMainAccess(this)" data-isadmin = "<?php echo $isadmin?>" class="btn btn-primary btn-lg" value="Database Maintenance", id="dbMain"/>		
 				&nbsp
 				&nbsp
 				&nbsp
 				&nbsp
 				&nbsp
 				&nbsp
-
 				<br>
 				<tr><td>
 					<?php

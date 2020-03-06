@@ -12,15 +12,15 @@
 	function dispCurrentUser()
 	{
 		if(isset($_SESSION['login']) && isset($_SESSION["username"])) {
-			printf("%s Logged in as: ",$_SESSION["username"]); 			
+			printf("Logged in as: %s",$_SESSION["username"]); 			
 		}
 	}
 	function isAdmin() {
 		$user_level =  (int)$_SESSION["user_level"];
-		if($user_level < 2) {
-			return false;
+		if($user_level>2) {
+			return true;
 		}
-		return true;
+		return false;
 	}
 	function checkLevel($min_level){
 		$user_level =  (int)$_SESSION["user_level"];
