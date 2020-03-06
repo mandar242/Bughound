@@ -1,0 +1,7 @@
+organize all the files into a directory structure
+cannot add area with 0 programs!
+areas input form mod to show available programs
+adding multi areas to a single program using program's PK
+form submission w/o names/other fields not allowed
+show all areas in that program in disp program
+Export!

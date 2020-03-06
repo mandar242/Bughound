@@ -1,0 +1,25 @@
+CREATE TABLE `employees` (
+                  `employee_id` int(11) NOT NULL AUTO_INCREMENT,
+                  `name` varchar(512) NOT NULL,
+                  `user_name` varchar(512) NOT NULL,
+                  `password` varchar(512) NOT NULL,
+                  `user_level` int(11) NOT NULL,
+                  PRIMARY KEY (`employee_id`)
+                )
+
+
+CREATE TABLE `programs` (
+                  `program_id` int(11) NOT NULL AUTO_INCREMENT,
+                  `program_name` varchar(512) NOT NULL,
+                  `release_build` int(11) NOT NULL,
+                  PRIMARY KEY (`program_id`)
+                )
+
+CREATE TABLE `areas` (
+                  `area_id` int(11) NOT NULL AUTO_INCREMENT,
+                  `area_name` varchar(512) NOT NULL,
+                  PRIMARY KEY (`area_id`)
+                )
+
+
+ALTER TABLE areas ADD COLUMN program_id INT(11) NOT NULL, ADD FOREIGN KEY(program_id) REFERENCES programs(program_id) ON DELETE CASCADE;
