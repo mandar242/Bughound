@@ -29,14 +29,14 @@
 		</script>
 		<table>
 			<tr><td>
-				<input type="button" onclick="window.location.href = 'dispEmployee.php';" class="btn btn-primary btn-lg" value="Edit Employees", id="bug"/>		
+				<input type="button" onclick="window.location.href = 'dispEmployee.php';" class="btn btn-primary btn-lg" value="Employees", id="bug"/>		
 				&nbsp
-				<input type="button" onclick="window.location.href = 'programMain.php';" class="btn btn-primary btn-lg" value="Edit Programs", id="bug"/>		
+				<input type="button" onclick="window.location.href = 'programMain.php';" class="btn btn-primary btn-lg" value="Programs", id="bug"/>		
 			</td></tr>
 			<br>
 			<tr><td>
 			<br>
-				<input type="button" onclick="window.location.href = 'areaMain.php';" class="btn btn-primary btn-lg" value="Edit Areas", id="bug"/>		
+				<input type="button" onclick="window.location.href = 'areaMain.php';" class="btn btn-primary btn-lg" value="Areas", id="bug"/>		
 				&nbsp
 				&nbsp
 				&nbsp
@@ -44,6 +44,11 @@
 				&nbsp
 				&nbsp
 
+				<br>
+				<tr><td>
+					<?php
+						dispCurrentUser();
+						?><tr><td>
 				<input type="button" onclick="UserLogOut()" class="btn btn-primary btn-lg" value="Logout"  id=logout/>
 			</td></tr>
 

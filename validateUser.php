@@ -6,6 +6,13 @@
 			alert('User not logged in!!!!');
 			document.location.href='/bughound544/login.php';
 			</SCRIPT>";	
+		}	
+	}
+
+	function dispCurrentUser()
+	{
+		if(isset($_SESSION['login']) && isset($_SESSION["username"])) {
+			printf("%s Logged in",$_SESSION["username"]); 			
 		}
 	}
 	function isAdmin() {
