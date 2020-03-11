@@ -45,8 +45,9 @@
                     <input type="Password" name="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Password"  value="<?php echo htmlspecialchars($password); ?>"</td></tr>
 				<tr><td>Userlevel:</td><td>
 					<select type="number" name="userlevel" size=1 value="4">
-					  <option value="1" <?php if($level == 1) { ?> selected="selected" <?php } ?> >user</option>
-					  <option value="2" <?php if($level == 2) { ?> selected="selected" <?php } ?> >admin</option>
+					  <option value="1" <?php if($level == 1) { ?> selected="selected" <?php } ?> >1</option>
+					  <option value="2" <?php if($level == 2) { ?> selected="selected" <?php } ?> >2</option>
+                      <option value="3" <?php if($level == 3) { ?> selected="selected" <?php } ?> >3</option>
 					</select></td>
 				</tr>
             </table>

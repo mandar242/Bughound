@@ -15,7 +15,8 @@
 			
 			$con = mysqli_connect("localhost","root");
 			mysqli_select_db($con, "Bughound");
-			$query = "SELECT * FROM programs";
+			$query = "select * from programs";
+			
 			$result = mysqli_query($con, $query);
 			 
 			if (mysqli_num_rows($result) == 0){
@@ -24,7 +25,7 @@
 			
 			else 
 			{
-				echo "<table border=1 id = 'table'><th>Program ID</th><th>Name</th><th>Release</th><th>Click to Update</th>\n";
+				echo "<table border=1 id = 'table'><th>Program ID</th><th>Program Name</th><th>Release</th><th>Click to Update</th>\n";
 				while($row=mysqli_fetch_array($result)) {
 					printf("<tr>
 								<td>%d</td>
@@ -45,6 +46,7 @@
 		</table>
 		<br>	
 		<INPUT type="button" value="Add program" id=create class="btn btn-primary btn-lg" onclick="window.location.href = 'addProgram.php'" >
+		<INPUT type="button" value="DB Home" id=done class="btn btn-primary btn-lg" onclick="window.location.href = 'dbMain.php'">
 		<INPUT type="button" value="Home" id=done class="btn btn-primary btn-lg" onclick="window.location.href = 'index.php'">
 		</div>
 		</div>

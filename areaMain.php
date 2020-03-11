@@ -16,7 +16,7 @@
 			
 			$con = mysqli_connect("localhost","root");
 			mysqli_select_db($con, "Bughound");
-			$query = "SELECT * FROM areas";
+			$query = "select * from areas";
 			$result = mysqli_query($con, $query);
 			 
 			if (mysqli_num_rows($result) == 0){
@@ -25,18 +25,20 @@
 			
 			else 
 			{
-				echo "<table border=3 id = 'table'><th>Area ID</th><th>Area Name</th><th>Click to Update</th>\n";
+				echo "<table border=3 id = 'table'><th>Area ID</th><th>Area Name</th><th>Program ID</th><th>Click to Update</th>\n";
 				while($row=mysqli_fetch_array($result)) {
 					printf("<tr>
 							<td>%d</td>
 							<td>%s</td>
+							<td>%d</td>
 							<td>
 							<A href='updateArea.php?area_id={$row[0]}'>
 							<span class=\"linkline\">Update</span></a>
 							</td>
 							</tr>\n",
 							$row['area_id'],
-							$row['area_name']
+							$row['area_name'],
+							$row['program_id']
 					);
 				}
 			}
@@ -44,7 +46,8 @@
 		</table>
 		<br>
 		<INPUT type="button" value="Add new area" id=create class="btn btn-primary btn-lg" onclick="window.location.href = 'addArea.php'">
-		<INPUT type="button" value="Return Home" id=done class="btn btn-primary btn-lg" onclick="window.location.href = 'index.php'">
+		<INPUT type="button" value="DB Home" id=done class="btn btn-primary btn-lg" onclick="window.location.href = 'dbMain.php'">
+		<INPUT type="button" value="Home" id=done class="btn btn-primary btn-lg" onclick="window.location.href = 'index.php'">
 		
 	</div>
 	</div>

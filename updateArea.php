@@ -16,19 +16,23 @@
 			$area_name;
 			$con = mysqli_connect("localhost","root");
             mysqli_select_db($con, "Bughound");
-			$query = "SELECT area_name
+			$query = "SELECT area_id,area_name,program_id
                 FROM areas WHERE area_id = '$id' ";
             $none = 0;
 			$result = mysqli_query($con, $query);
             while($row=mysqli_fetch_row($result)) {
                 $none=1;
-				$area_name = $row[0];
+                $area_id = $row[0];
+                $area_name = $row[1];
+                $program_id = $row[2];
             }
 		?>
         <p><form action="updateUtil.php" method="post" onsubmit="return validate(this)">
             <input type="hidden" name="id" value="<?php echo htmlspecialchars($id); ?>">
             <table>
-                <tr><td>Name: &nbsp</td><td><input type="Text" name="area_name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Name" value="<?php echo htmlspecialchars($area_name); ?>"</td></tr>
+                <tr><td>Area ID: &nbsp</td><td><input type="Text" name="area_name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Name" readonly value="<?php echo htmlspecialchars($area_id); ?>"</td></tr>
+                <tr><td>Program ID: &nbsp</td><td><input type="Text" name="area_name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Name" readonly value="<?php echo htmlspecialchars($program_id); ?>"</td></tr>
+                <tr><td>Area Name: &nbsp</td><td><input type="Text" name="area_name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Name" value="<?php echo htmlspecialchars($area_name); ?>"</td></tr>
             </table>
             <br><input type="submit" name="submit" class="btn btn-primary btn-lg" value="Submit">
         </form>

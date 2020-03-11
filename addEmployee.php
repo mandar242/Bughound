@@ -22,12 +22,12 @@
 					  <option value="1">1</option>
 					  <option value="2">2</option>
 					  <option value="3">3</option>
-					  <option value="4">4</option>
 					</select></td>
 				</tr>
             </table>
             <input type="submit" name="Submit" class="btn btn-primary btn-lg" value="Next">
-            <input type="button" value="Return home" id=button1 name=button1 class="btn btn-primary btn-lg" onclick="go_home()">    
+            <input type="button" value="Home" id=button1 name=button1 class="btn btn-primary btn-lg" onclick="go_home()">
+            <input type="button" value="DB Home" id=button1 name=button1 class="btn btn-primary btn-lg" onclick="go_dbhome()">    
         </form>
 		<p>
 			<h3>
@@ -38,11 +38,11 @@
         <script language=Javascript>
             function validate(theform) {
                 if(theform.name.value === ""){
-                    alert ("First name field cannot be empty");
+                    alert ("Name field cannot be empty");
                     return false;
                 }
                 if(theform.username.value === ""){
-                    alert ("Last name field cannot be empty");
+                    alert ("Username field cannot be empty");
                     return false;
                 }
 				if(theform.password.value === ""){
@@ -53,14 +53,13 @@
                     alert ("Userlevel field cannot be empty");
                     return false;
                 }
-				if(theform.name.value === ""){
-                    alert ("Name field cannot be empty");
-                    return false;
-                }
                 return true;
             }
             function go_home(){
                 window.location.replace("dispEmployee.php");
+            }
+            function go_dbhome(){
+                window.location.replace("dbMain.php");
             }
 		</script>
         </div>

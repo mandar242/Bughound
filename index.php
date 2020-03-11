@@ -37,7 +37,7 @@
 				}
 				else
 				{
-					alert('Not Admin!!!!');
+					alert('Sorry, only admin can access database maintenance!!!!');
 					window.location.replace('index.php');
 				}
 				
@@ -45,14 +45,14 @@
 
 			function addBug()
 			{	
-				//window.location.href = 'dbMain.php';
+				window.location.href = 'addbug.php';
 
 				//window.location.href = 'index.php';
 			}
 		</script>
 		<table>
 			<tr><td>
-				<input type="button" onclick="addBug()" class="btn btn-primary btn-lg" value="Add Bug", id="bug"/>		
+				<input type="button" onclick="addBug()" class="btn btn-primary btn-lg" value="Add a new Bug Entry", id="bug"/>		
 			</td></tr>
 			<br>
 			<tr><td>

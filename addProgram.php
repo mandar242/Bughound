@@ -11,7 +11,9 @@
 		<div class= "container">
 		<?php
 			include 'validateUser.php';		
-			checkLogin();
+            checkLogin();
+            $con = mysqli_connect('localhost', 'root', '');
+            $sel = mysqli_select_db($con,"bughound");
 		?>
 		
         <h1>Add New Program Information</h1>
@@ -20,10 +22,12 @@
             <table>
                 <tr><td><input type="Text" name="program_name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Program Name"</td></tr>
             </table>
+            <br>
             <table>
                 <tr><td><input type="Number" name="release" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Release Number"</td></tr>
             </table>
             <br>
+            
             <input type="submit" name="submit" class="btn btn-primary btn-lg" value="Submit">
 			<input type="button" value="Cancel" class="btn btn-primary btn-lg" onclick="window.location.href = 'programMain.php'">
 
@@ -32,7 +36,7 @@
         <script language=Javascript>
 
             function validate(theform) {
-                if(theform.name.value === ""){
+            if(theform.program_name.value === ""){
                     alert ("Name field cannot be empty");
                     return false;
                 }

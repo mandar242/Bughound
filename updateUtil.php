@@ -17,7 +17,7 @@
     
     if(isset($_POST['area_name'])){
 		$id = $_POST['id'];
-		$name = $_POST['area_name'];
+        $name = $_POST['area_name'];
 
         $con = mysqli_connect("localhost","root");
         mysqli_select_db($con, "Bughound");

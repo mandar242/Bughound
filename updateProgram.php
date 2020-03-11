@@ -57,11 +57,7 @@
             }
         </script>
 
-        <p><br><INPUT type="button" value="Home" id=button1 name=button1 class="btn btn-primary btn-lg" onclick="go_home()">
-        <script language=Javascript>
-            function go_home() {
-                document.location.href='programMain.php';
-            }
+        <p><br>		<INPUT type="button" value="Home" id=done class="btn btn-primary btn-lg" onclick="window.location.href = 'index.php'">
             </div>
             </div>
 

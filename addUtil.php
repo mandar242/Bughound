@@ -40,17 +40,30 @@
 			header("Location: programMain.php");	
 		}		
 		die();
-	}	
+	}		
 	
+
 	if(isset($_POST['area_name'])){
 		$name = $_POST['area_name'];
+		$progid = $_POST['progid'];
 
 		$con = mysqli_connect("localhost","root");
-		mysqli_select_db($con, "Bughound");
+		mysqli_select_db($con, "bughound");
 
 		$query_check = "SELECT * FROM `areas` WHERE `area_name` = '".$name."'";
 		$result = mysqli_query($con, $query_check);
 
+		$query_init = "select * from programs";
+		$result2 = mysqli_query($con,$query_init);
+
+		if(mysqli_num_rows($result2) ==0 )
+		{
+			echo "<SCRIPT type='text/javascript'>
+				alert('CANNOT ENTER AREA without program');
+				window.location.replace('areaMain.php');
+				</SCRIPT>";
+		}		
+		else{
 		if (mysqli_num_rows($result) != 0){
 			echo "<SCRIPT type='text/javascript'>
 				alert('Area Already In Database');
@@ -58,10 +71,13 @@
 				</SCRIPT>";	
 		}	
 		else {
-			$query = "INSERT INTO `areas`(`area_name`) VALUES ('".$name."')";
+			$query = "INSERT INTO areas(area_name,program_id) VALUES ('".$name."','".$progid."')";
 			mysqli_query($con, $query);
 			header("Location: areaMain.php");		
-		}		
+		}
+		}
+		
+		
 		die();	
 	}
 	
