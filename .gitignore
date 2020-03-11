@@ -1,3 +1,5 @@
 /.metadata
 /Test_temp
-todo.txt
+*.xml
+*.txt
+

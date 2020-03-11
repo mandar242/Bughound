@@ -23,3 +23,7 @@ CREATE TABLE `areas` (
 
 
 ALTER TABLE programs ADD COLUMN area_id INT(11) NOT NULL, ADD FOREIGN KEY(area_id) REFERENCES areas(area_id) ON DELETE CASCADE;
+
+
+"""  Command to insert first employee - ADMIN"""
+insert into employees VALUES(1,"admin","admin",123,3);

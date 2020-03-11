@@ -38,9 +38,14 @@
 				&nbsp
 				&nbsp
 				&nbsp
+				<input type="button" onclick="window.location.href = 'exportMain.php';" class="btn btn-primary btn-lg" value="Export", id="bug"/>
 				&nbsp
 				&nbsp
 				&nbsp
+				&nbsp
+				&nbsp
+				&nbsp
+				
 			</td></tr>
 
 		</table>

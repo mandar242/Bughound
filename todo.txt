@@ -1,10 +1,10 @@
-organize all the files into a directory structure
+organize all the files into a directory structure !!!!!!!!!!!!!!
 
 cannot add area with 0 programs!     ***DONE
 areas input form mod to show available programs ***DONE
 
-adding multi areas to a single program using program's PK 
+adding multi areas to a single program using program's PK ***DONE
 form submission w/o names/other fields not allowed   ###AREA NAME ***DONE
 show all areas in that program in disp program ***DONE
 
-Export!
+Export! ***DONE  ***Change GUI!
