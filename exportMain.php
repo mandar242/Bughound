@@ -16,11 +16,12 @@
 <html>
     <head>       
 	<meta charset="UTF-8">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     </head>
     <body class = "centered-wrapper">
 	
         <form action="exportUtil.php" method="post">
-            Select table to export: 
+         <h3>   Select table to export: </h3> 
 				<select name="table" id="table" required>
                 <option selected="selected" value=""></option>
                 <option value="bugs"> Bugs </option>
@@ -30,15 +31,15 @@
                 <option value="programs"> Programs</option>              
             </select>
 			<br>            
-Select a export file format: 
+<h3>Select a export file format:</h3>  
 				<select name="format" id="format" required>
                 <option selected="selected" value=""></option>
 				 <option value="xml">  XML </option> 
                 <option value="ascii"> ASCII </option>               
             </select>
             <br><br>
-            <input type='submit' value='Export'/>
-            <input type="button" value="Home" id=homeButton name=homeButton onclick="go_home()">
+            <input type='submit' class="btn btn-primary btn-lg" value='Export'/>
+            <input type="button" class="btn btn-primary btn-lg" value="Home" id=homeButton name=homeButton onclick="go_home()">
 <script language=Javascript>
             function go_home(){
                 window.location.replace("index.php");
