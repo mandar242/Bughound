@@ -49,12 +49,24 @@
 
 				//window.location.href = 'index.php';
 			}
+
+			
+			function searchbugs()
+			{	
+				window.location.href = 'searchbugs.php';
+
+			}
+
 		</script>
 		<table>
 			<tr><td>
 				<input type="button" onclick="addBug()" class="btn btn-primary btn-lg" value="Add a new Bug Entry", id="bug"/>		
 			</td></tr>
 			<br>
+			<br>
+			<tr><td><br>
+				<input type="button" onclick="searchbugs()" class="btn btn-primary btn-lg" value="Search Bugs", id="searchbugs"/>		
+			</td></tr>
 			<tr><td>
 			<br>
 				<input type="button" onclick="dbMainAccess(this)" data-isadmin = "<?php echo $isadmin?>" class="btn btn-primary btn-lg" value="Database Maintenance", id="dbMain"/>		
