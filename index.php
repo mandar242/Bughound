@@ -53,7 +53,7 @@
 			
 			function searchbugs()
 			{	
-				window.location.href = 'searchbugs.php';
+				window.location.href = 'searchbugs2.php';
 
 			}
 

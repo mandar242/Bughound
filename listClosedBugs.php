@@ -16,8 +16,7 @@
 			
 			$con = mysqli_connect("localhost","root");
 			mysqli_select_db($con, "Bughound");
-			$query = "SELECT * from bug_entry WHERE bug_status = 'open'";
-
+			$query = "SELECT * from bug_entry WHERE bug_status = 'closed'";
 			$result = mysqli_query($con, $query);
 			 
 			if (mysqli_num_rows($result) == 0){
@@ -80,8 +79,6 @@
 		
 		<INPUT type="button" value="Search Another Bug" id=done class="btn btn-primary btn-lg" onclick="window.location.href = 'searchbugs.php'">
 		<INPUT type="button" value="Home" id=done class="btn btn-primary btn-lg" onclick="window.location.href = 'index.php'">
-		<INPUT type="button" value="Show all closed bugs" id=done class="btn btn-primary btn-lg" onclick="window.location.href = 'listClosedBugs.php'">
-		
 	</div>
 	</div>
 
