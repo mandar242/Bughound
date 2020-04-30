@@ -151,6 +151,7 @@ Resolution: <select type="text" name="resolution" size=1 id ='resolution'>
     <input type="reset" name="Reset" class="btn btn-primary btn-lg" value="Reset">
     <INPUT type="button" value="List All Bugs" id=done class="btn btn-primary btn-lg" onclick="window.location.href = 'listbugs.php'">  
     <INPUT type="button" value="Home" id=done class="btn btn-primary btn-lg" onclick="window.location.href = 'index.php'">  
+    <input type="hidden" name="query" id="query">
     </div>  
   </div> <!-- /.form-group -->
 
@@ -198,8 +199,8 @@ Resolution: <select type="text" name="resolution" size=1 id ='resolution'>
                 else{
                 alert(query);
                 }
-                document.cookie =query;
-                return query;
+                var query_element = document.getElementById('query');
+                query_element.value = query;
             }
         </script>
         <script type="text/javascript">

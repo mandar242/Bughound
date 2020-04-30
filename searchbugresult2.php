@@ -16,7 +16,7 @@
             
             $con = mysqli_connect("localhost","root");
             mysqli_select_db($con, "Bughound");
-
+                $query = $_POST['query'];
                 $program_name = $_POST['program_name']; 
                 $reported_by = $_POST['reported_by'];
                 $report_type = $_POST['report_type'];
@@ -37,10 +37,6 @@
                 else{
                     echo "no priority selected";
                 } 
-
-            <script type="text/javascript">
-                var query = document.cookie;
-            </script>
     
             $result = mysqli_query($con, $query);
              
