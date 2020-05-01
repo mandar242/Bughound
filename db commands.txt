@@ -27,3 +27,46 @@ ALTER TABLE programs ADD COLUMN area_id INT(11) NOT NULL, ADD FOREIGN KEY(area_i
 
 """  Command to insert first employee - ADMIN"""
 insert into employees VALUES(1,"admin","admin",123,3);
+
+
+
+
+-- Database: `bughound`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `bug_entry`
+--
+
+CREATE TABLE `bug_entry` (
+  `program_name` varchar(512) NOT NULL,
+  `report_type` varchar(512) NOT NULL,
+  `severity` varchar(512) NOT NULL,
+  `problem_summary` varchar(512) NOT NULL,
+  `reproducible` varchar(512) NOT NULL,
+  `problem` varchar(512) NOT NULL,
+  `reported_by` varchar(512) NOT NULL,
+  `report_date` date NOT NULL,
+  `area_name` varchar(512) NOT NULL,
+  `assigned_to` varchar(512) NOT NULL,
+  `comments` varchar(512) NOT NULL,
+  `bug_status` varchar(512) NOT NULL,
+  `priority` varchar(512) NOT NULL,
+  `resolution` varchar(512) NOT NULL,
+  `resolved_by` varchar(512) NOT NULL,
+  `resolved_date` date NOT NULL,
+  `tested_by` varchar(512) NOT NULL,
+  `tested_date` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `bug_entry`
+--
+
+INSERT INTO `bug_entry` (`program_name`, `report_type`, `severity`, `problem_summary`, `reproducible`, `problem`, `reported_by`, `report_date`, `area_name`, `assigned_to`, `comments`, `bug_status`, `priority`, `resolution`, `resolved_by`, `resolved_date`, `tested_by`, `tested_date`) VALUES
+('BugHound-1-1', 'coding', 'serious', 'The last two lines of output are concatenated on a single line', 'yes', 'Lines 32 and 33 in the output report are not on separate lines', 'Mandar', '2020-04-29', '', '', '', 'open', '', '', 'Select employee', '0000-00-00', 'Select employee', '0000-00-00'),
+('Skyrim', 'suggestion', 'serious', 'The last two lines of output are concatenated on a single line', 'no', 'Lines 32 and 33 in the output report are not on separate lines', 'Timmy', '2020-04-29', '', '', '', 'open', '', '', 'Select employee', '0000-00-00', 'Select employee', '0000-00-00'),
+('Skyrim', 'suggestion', 'major', 'asd', 'yes', 'asdasd', 'Mandar', '2020-04-29', '', '', '', 'open', '', '', 'Select employee', '0000-00-00', 'Select employee', '0000-00-00');
+COMMIT;
