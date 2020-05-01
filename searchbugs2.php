@@ -146,11 +146,12 @@ Resolution: <select type="text" name="resolution" size=1 id ='resolution'>
 
 </div>     
 </div>
-
+    <input type="hidden" name = "bug_id" id="bug_id" value= "<?= $bug_id?>"> </input>
     <input type="submit" name="Submit" class="btn btn-primary btn-lg" value="Submit" onclick="buildQuery()">
     <input type="reset" name="Reset" class="btn btn-primary btn-lg" value="Reset">
     <INPUT type="button" value="List All Bugs" id=done class="btn btn-primary btn-lg" onclick="window.location.href = 'listbugs.php'">  
     <INPUT type="button" value="Home" id=done class="btn btn-primary btn-lg" onclick="window.location.href = 'index.php'">  
+    <input type="hidden" name="query" id="query">
     </div>  
   </div> <!-- /.form-group -->
 
@@ -158,7 +159,7 @@ Resolution: <select type="text" name="resolution" size=1 id ='resolution'>
 </div>
 </div>
 
-<!-------------------------------------------- Query builder -->
+<!-- Query builder -->
 <script type="text/javascript">
         
             function buildQuery()
@@ -166,10 +167,6 @@ Resolution: <select type="text" name="resolution" size=1 id ='resolution'>
                 var query = "Select * from bug_entry where ";
                 var check ="c_";
                 var numberOfSelected = -1;
-                /* find out how many check boxes are checked
-                 * because we need to know how many 'and' to apppend to query 
-                 * note numberOfSelected = -1 becuase if only a single checkbox
-                 * is selected, it's incremented to 0 and thats how many 'and's we need*/
                 for (var i =0; i<9;i++)
                 {
                     if(document.getElementById(check + i).checked)
@@ -195,11 +192,8 @@ Resolution: <select type="text" name="resolution" size=1 id ='resolution'>
                   alert("Please Select Atleast one criteria to search bug");
                   window.document.location = './searchbugs2.php';
                 }
-                else{
-                alert(query);
-                }
-                document.cookie =query;
-                return query;
+                var query_element = document.getElementById('query');
+                query_element.value = query;
             }
         </script>
         <script type="text/javascript">

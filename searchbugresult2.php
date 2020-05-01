@@ -16,7 +16,8 @@
             
             $con = mysqli_connect("localhost","root");
             mysqli_select_db($con, "Bughound");
-
+                $query = $_POST['query'];
+                $bug_id = $_POST['bug_id'];
                 $program_name = $_POST['program_name']; 
                 $reported_by = $_POST['reported_by'];
                 $report_type = $_POST['report_type'];
@@ -37,10 +38,6 @@
                 else{
                     echo "no priority selected";
                 } 
-
-            <script type="text/javascript">
-                var query = document.cookie;
-            </script>
     
             $result = mysqli_query($con, $query);
              
@@ -50,9 +47,10 @@
             
             else 
             {
-                echo "<table border=3 id = 'table'><th>Program</th><th>Report Type</th><th>Severity</th><th>Problem Summary</th><th>Reproducible</th><th>Problem</th><th>Reported By</th><th>Reported Date</th><th>Functional Area</th><th>Assigned To</th><th>Comments</th><th>Bug Status</th><th>Priority</th><th>Resolution</th><th>Resolved By</th><th>Resolved Date</th><th>Tested By</th><th>Tested Date</th><th>Click to Update</th>\n";
+                echo "<table border=3 id = 'table'><th>Bug ID</th><th>Program</th><th>Report Type</th><th>Severity</th><th>Problem Summary</th><th>Reproducible</th><th>Problem</th><th>Reported By</th><th>Reported Date</th><th>Functional Area</th><th>Assigned To</th><th>Comments</th><th>Bug Status</th><th>Priority</th><th>Resolution</th><th>Resolved By</th><th>Resolved Date</th><th>Tested By</th><th>Tested Date</th><th>Click to Update</th>\n";
                 while($row=mysqli_fetch_array($result)) {
                     printf("<tr>
+                            <td>%d</td>
                             <td>%s</td>
                             <td>%s</td>
                             <td>%s</td>
@@ -72,11 +70,13 @@
                             <td>%s</td>
                             <td>%s</td>
                             <td>
-                                    <A href='updateBug.php?bug_name={$row[0]}'>
-                                    <span class=\"linkline\">Update</span></a>
+                                    <form method=\"post\" action=\"addbug.php\">
+                                    <input name = \"bug_id\" type=\"hidden\" value=\"{$row[0]}\"/>
+                                    <button type = \"submit\" class=\"linkline\"> Update </button>
+                                    </form>
                                 </td>
                             </tr>\n",
-        
+                            $row['bug_id'],
                             $row['program_name'],
                             $row['report_type'],
                             $row['severity'],
@@ -100,7 +100,7 @@
             }
         
         ?>
-        </table> -->
+        </table>
         <br>
         
         <INPUT type="button" value="Search Another Bug" id=done class="btn btn-primary btn-lg" onclick="window.location.href = 'searchbugs2.php'">

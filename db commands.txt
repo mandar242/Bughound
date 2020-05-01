@@ -29,8 +29,11 @@ ALTER TABLE programs ADD COLUMN area_id INT(11) NOT NULL, ADD FOREIGN KEY(area_i
 insert into employees VALUES(1,"admin","admin",123,3);
 
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> upstream/master
 -- Database: `bughound`
 --
 
@@ -69,4 +72,8 @@ INSERT INTO `bug_entry` (`program_name`, `report_type`, `severity`, `problem_sum
 ('BugHound-1-1', 'coding', 'serious', 'The last two lines of output are concatenated on a single line', 'yes', 'Lines 32 and 33 in the output report are not on separate lines', 'Mandar', '2020-04-29', '', '', '', 'open', '', '', 'Select employee', '0000-00-00', 'Select employee', '0000-00-00'),
 ('Skyrim', 'suggestion', 'serious', 'The last two lines of output are concatenated on a single line', 'no', 'Lines 32 and 33 in the output report are not on separate lines', 'Timmy', '2020-04-29', '', '', '', 'open', '', '', 'Select employee', '0000-00-00', 'Select employee', '0000-00-00'),
 ('Skyrim', 'suggestion', 'major', 'asd', 'yes', 'asdasd', 'Mandar', '2020-04-29', '', '', '', 'open', '', '', 'Select employee', '0000-00-00', 'Select employee', '0000-00-00');
+<<<<<<< HEAD
 COMMIT;
+=======
+COMMIT;
+>>>>>>> upstream/master
