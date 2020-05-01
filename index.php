@@ -69,13 +69,12 @@
 			</td></tr>
 			<tr><td>
 			<br>
-				<input type="button" onclick="dbMainAccess(this)" data-isadmin = "<?php echo $isadmin?>" class="btn btn-primary btn-lg" value="Database Maintenance", id="dbMain"/>		
-				&nbsp
-				&nbsp
-				&nbsp
-				&nbsp
-				&nbsp
-				&nbsp
+				<?php 
+					if(isadmin())
+					{
+						echo "<input type='button' onclick=\"window.location.href = 'dbMain.php' \"  class=\"btn btn-primary btn-lg\" value=\"Database Maintenance\", id=\"dbMain\"/>";
+					}
+				?>
 				<br>
 				<tr><td>
 					<?php

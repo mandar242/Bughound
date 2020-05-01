@@ -2,61 +2,105 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Update Area</title>
+        <title>Update Bug</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     </head>
     <body>
     <div class= "jumbotron">
     <div class= "container">
-    <h1>Update Area Name</h1>
+    <h1>Update Program Information</h1>
         <?php
-            include 'validateUser.php';	
+            include 'validateUser.php'; 
             checkLogin();
-			$id = $_GET['area_id'];
-			$area_name;
-			$con = mysqli_connect("localhost","root");
+            $bug_id = $_POST['bug_id'];
+
+            $program_name;
+            $report_type;
+            $severity;
+                $problem_summary;
+                $reproducible;
+                $problem;
+                $reported_by;
+                $report_date;
+                $area_name;
+                $assigned_to;
+                $comments;
+                $bug_status;
+                $priority;
+                $resolution;
+                $resolved_by;
+                $resolved_date;
+                $tested_by;
+                $tested_date;
+
+            $con = mysqli_connect("localhost","root");
             mysqli_select_db($con, "Bughound");
-			$query = "SELECT area_id,area_name,program_id
-                FROM areas WHERE area_id = '$id' ";
+            $query = "SELECT * FROM bug_entry WHERE bug_id = '$bug_id' ";
             $none = 0;
-			$result = mysqli_query($con, $query);
+            $result = mysqli_query($con, $query);
             while($row=mysqli_fetch_row($result)) {
                 $none=1;
-                $area_id = $row[0];
-                $area_name = $row[1];
-                $program_id = $row[2];
+
+                $bug_id = $row[0];
+                $program_name = $row[1];
+                $report_type = $row[2];
+                $severity = $row[3];
+                $problem_summary = $row[4];
+                $reproducible = $row[5];
+                $problem = $row[6];
+                $reported_by = $row[7];
+                $report_date = $row[8];
+                $area_name = $row[9];
+                $assigned_to = $row[10];
+                $comments = $row[11];
+                $bug_status = $row[12];
+                $priority = $row[13];
+                $resolution = $row[14];
+                $resolved_by = $row[15];
+                $resolved_date = $row[16];
+                $tested_by = $row[17];
+                $tested_date = $row[18];
             }
-		?>
-        <p><form action="updateUtil.php" method="post" onsubmit="return validate(this)">
-            <input type="hidden" name="id" value="<?php echo htmlspecialchars($id); ?>">
-            <table>
-                <tr><td>Area ID: &nbsp</td><td><input type="Text" name="area_name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Name" readonly value="<?php echo htmlspecialchars($area_id); ?>"</td></tr>
-                <tr><td>Program ID: &nbsp</td><td><input type="Text" name="area_name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Name" readonly value="<?php echo htmlspecialchars($program_id); ?>"</td></tr>
-                <tr><td>Area Name: &nbsp</td><td><input type="Text" name="area_name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Name" value="<?php echo htmlspecialchars($area_name); ?>"</td></tr>
-            </table>
-            <br><input type="submit" name="submit" class="btn btn-primary btn-lg" value="Submit">
+        ?>
+        <form action="updateUtil.php" method="post" onsubmit="return validate(this)">
+            <!--Select Program-->
+    <?php
+        $con = mysqli_connect('localhost', 'root', '');
+        $sel = mysqli_select_db($con,"bughound");
+
+        $sql = "SELECT program_name from programs";  
+        $result = mysqli_query($con, $sql);
+
+        echo  "Program: <select name='program_name' required>";
+        echo "<option value=''" ."'>".'<?php echo $program_name; ?>'. "</option>";  
+
+        while($row = mysqli_fetch_array($result)){
+            echo "<option value='" . $row['program_name'] ."'>" . $row['program_name'] ."</option>";  
+        }
+        echo "</select>";
+     ?>
+
         </form>
-        <p><form action="deleteUtil.php" method="post">
-            <input type="hidden" name="area_id" class="btn btn-primary btn-lg" value="<?php echo htmlspecialchars($id); ?>">
-            <input type="submit" name="delete"class="btn btn-primary btn-lg"  value="Delete">
-        </form>
+        
+
         <script language=Javascript>
 
             function validate(theform) {
                 if(theform.name.value === ""){
-                    alert ("Name field must not be empty");
+                    alert ("Name field cannot be empty");
+                    return false;
+                }
+                if(theform.release.value === ""){
+                    alert ("Release field cannot be empty");
                     return false;
                 }
             }
         </script>
 
-        <br><INPUT type="button" value="Cancel" id=button1 name=button1 class="btn btn-primary btn-lg" onclick="go_home()">
-        <script language=Javascript>
-            function go_home() {
-                window.location.replace("areaMain.php");
-            }
-        </script>
-        </div>
-        </div>    
+        <p><br>     <INPUT type="button" value="Home" id=done class="btn btn-primary btn-lg" onclick="window.location.href = 'index.php'">
+            </div>
+            </div>
+
+</script>    
     </body>
 </html>

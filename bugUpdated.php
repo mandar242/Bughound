@@ -3,7 +3,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Adding Bug</title>
+        <title>UPDATING Bug</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     </head>
     <body>
@@ -11,9 +11,9 @@
 		<div class= "container">
         <h2>
             <?php
+                $bug_id = $_POST['bug_id'];
                 $program_name = $_POST['program_name'];
                 $report_type = $_POST['report_type'];
-                $file = $_POST['file'];
                 if(isset($_POST['severity'])) {
                 
                 $severity = $_POST['severity'];
@@ -21,7 +21,6 @@
                 else{
                     echo "no severity selected";
                 }
-				
                 $problem_summary = $_POST['problem_summary'];
                 $reproducible = $_POST['reproducible'];
                 $problem = $_POST['problem'];
@@ -53,12 +52,12 @@
 				$con = mysqli_connect("localhost","root");
                 mysqli_select_db($con, "Bughound");
                 
-                $query2 = "INSERT INTO `bug_entry` (`program_name`, `report_type`, `severity`,`problem_summary`, `reproducible`, `problem`, `reported_by`, `report_date`, `area_name`, `assigned_to`, `comments`, `bug_status`, `priority`, `resolution`,`resolved_by`, `resolved_date`, `tested_by`, `tested_date`, `file`) VALUES ('".$program_name."' ,'".$report_type."','".$severity."','".$problem_summary."','".$reproducible."','".$problem."','".$reported_by."','".$report_date."','".$area_name."','".$assigned_to."','".$comments."','".$bug_status."','".$priority."','".$resolution."','".$resolved_by."','".$resolved_date."','".$tested_by."','".$tested_date."','".$file."')";
+                //$query2 = "INSERT INTO `bug_entry` (`program_name`, `report_type`, `severity`,`problem_summary`, `reproducible`, `problem`, `reported_by`, `report_date`, `area_name`, `assigned_to`, `comments`, `bug_status`, `priority`, `resolution`,`resolved_by`, `resolved_date`, `tested_by`, `tested_date`) VALUES ('".$program_name."' ,'".$report_type."','".$severity."','".$problem_summary."','".$reproducible."','".$problem."','".$reported_by."','".$report_date."','".$area_name."','".$assigned_to."','".$comments."','".$bug_status."','".$priority."','".$resolution."','".$resolved_by."','".$resolved_date."','".$tested_by."','".$tested_date."')";
+                $query = "UPDATE `bug_entry` SET `program_name` = '".$program_name."',  `report_type` = '".$report_type."',   `severity` = '".$severity."', `problem_summary` = '".$problem_summary."', `reproducible` = '".$reproducible."', `problem` = '".$problem."', `reported_by` = '".$reported_by."', `report_date` = '".$report_date."', `area_name` = '".$area_name."', `assigned_to` = '".$assigned_to."', `comments` = '".$comments."', `bug_status` = '".$bug_status."', `priority` = '".$priority."', `resolution` = '".$resolution."', `resolved_by` = '".$resolved_by."', `resolved_date` = '".$resolved_date."', `tested_by` = '".$tested_by."', `tested_date` = '".$tested_date."'  WHERE `bug_id` = '".$bug_id."' "; 
 
 
-
-				mysqli_query($con, $query2);
-                printf("<p>Bug Entry Added Successfully<p>");
+				mysqli_query($con, $query);
+                printf("<p>Bug Entry Updated Successfully<p>");
             ?>
             <input type="button" value="Return Home" id=button1 name=button1 class="btn btn-primary btn-lg" onclick="go_home()">    
         </h2>
@@ -68,6 +67,8 @@
             }
         </script>
            </div>
-           </div> 
+           </div>
+
+
     </body>
 </html>
