@@ -68,3 +68,7 @@ INSERT INTO `bug_entry` (`program_name`, `report_type`, `severity`, `problem_sum
 ('Skyrim', 'suggestion', 'serious', 'The last two lines of output are concatenated on a single line', 'no', 'Lines 32 and 33 in the output report are not on separate lines', 'Timmy', '2020-04-29', '', '', '', 'open', '', '', 'Select employee', '0000-00-00', 'Select employee', '0000-00-00'),
 ('Skyrim', 'suggestion', 'major', 'asd', 'yes', 'asdasd', 'Mandar', '2020-04-29', '', '', '', 'open', '', '', 'Select employee', '0000-00-00', 'Select employee', '0000-00-00');
 COMMIT;
+
+
+
+CREATE TABLE Upfiles(bug_id INT(11) NOT NULL, file_id int(11) NOT NULL AUTO_INCREMENT, file_name varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci, PRIMARY KEY(file_id), FOREIGN KEY(bug_id) REFERENCES bug_entry(bug_id));
