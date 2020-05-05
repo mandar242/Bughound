@@ -53,7 +53,16 @@
 									<input name = \"bug_id\" type=\"hidden\" value=\"{$row[0]}\"/>
 									<button type = \"submit\" class=\"linkline\"> Update </button>
 									</form>
-								</td>
+							</td>
+
+							<td>	
+                            		<form method=\"post\" action=\"displayFiles.php\">
+									<input name = \"bug_id\" type=\"hidden\" value=\"{$row[0]}\"/>
+									<button type = \"submit\" class=\"linkline\"> Display Files </button>
+									</form>
+							</td>
+				
+
 							</tr>\n",
 							$row['bug_id'],
 							$row['program_name'],

@@ -13,7 +13,6 @@
             <?php
                 $program_name = $_POST['program_name'];
                 $report_type = $_POST['report_type'];
-                $file = $_POST['file'];
                 if(isset($_POST['severity'])) {
                 
                 $severity = $_POST['severity'];
@@ -53,7 +52,7 @@
 				$con = mysqli_connect("localhost","root");
                 mysqli_select_db($con, "Bughound");
                 
-                $query2 = "INSERT INTO `bug_entry` (`program_name`, `report_type`, `severity`,`problem_summary`, `reproducible`, `problem`, `reported_by`, `report_date`, `area_name`, `assigned_to`, `comments`, `bug_status`, `priority`, `resolution`,`resolved_by`, `resolved_date`, `tested_by`, `tested_date`, `file`) VALUES ('".$program_name."' ,'".$report_type."','".$severity."','".$problem_summary."','".$reproducible."','".$problem."','".$reported_by."','".$report_date."','".$area_name."','".$assigned_to."','".$comments."','".$bug_status."','".$priority."','".$resolution."','".$resolved_by."','".$resolved_date."','".$tested_by."','".$tested_date."','".$file."')";
+                $query2 = "INSERT INTO `bug_entry` (`program_name`, `report_type`, `severity`,`problem_summary`, `reproducible`, `problem`, `reported_by`, `report_date`, `area_name`, `assigned_to`, `comments`, `bug_status`, `priority`, `resolution`,`resolved_by`, `resolved_date`, `tested_by`, `tested_date`) VALUES ('".$program_name."' ,'".$report_type."','".$severity."','".$problem_summary."','".$reproducible."','".$problem."','".$reported_by."','".$report_date."','".$area_name."','".$assigned_to."','".$comments."','".$bug_status."','".$priority."','".$resolution."','".$resolved_by."','".$resolved_date."','".$tested_by."','".$tested_date."')";
 
 
 
