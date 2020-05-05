@@ -327,10 +327,27 @@ Date: <input type="date" name="tested_date" id="test_date" value = "<?= $rowDB['
     <input type="submit" name="Update" class="btn btn-primary btn-lg" formaction="bugUpdated.php" value="UPDATE" method= "post">
     <input type="reset" name="Reset" class="btn btn-primary btn-lg" value="Reset">
     <INPUT type="button" value="Home" id=done class="btn btn-primary btn-lg" onclick="window.location.href = 'index.php'">  
+    
     </div>  
   </div> <!-- /.form-group -->
 
 </form>
+
+    <br>
+    <br>
+    <br>
+
+<?php include 'upload_files.php'; ?>
+<form action="upload_files.php" method="post" enctype="multipart/form-data">
+    <?php
+        $bug_id = $_POST['bug_id'];
+    ?>
+    <input type="hidden" name = "bug_id" id="bug_id" value= "<?= $bug_id?>"> </input>
+    Select Image Files to Upload:
+    <input type="file" name="files[]" multiple >
+    <input type="submit" name="upload_files"  value="UPLOAD">
+</form>
+
 </div>
 </div>
             
