@@ -317,9 +317,6 @@ Date: <input type="date" name="resolved_date" id="resolved_date" value = "<?= $r
 <!--Test Date -->
 Date: <input type="date" name="tested_date" id="test_date" value = "<?= $rowDB['tested_date'] ?? '' ?>"></input>
 
-
-<input type="file" name="file"> <br>
-
 <input type="hidden" name = "bug_id" id="bug_id" value= "<?= $bug_id?>"> </input>
 
 </div>     
