@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>New bug</title>
+    <title>Export Area</title>
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
@@ -18,38 +18,29 @@
 </head>
 <?php   
         session_start();
-        if(isset($_SESSION['last_action']))
-        {
-          if(time() - $_SESSION['last_action']>1800)
-          {
-            session_unset();
-            session_destroy();  
-          }
-        }
-        $_SESSION['last_action'] = time();
         if(isset($_SESSION['username'])){
-             'Username - '.$_SESSION['username']." ";
-             'User Level - '.$_SESSION['userlevel'];
+            echo 'Username - '.$_SESSION['username']." ";
+            echo 'User Level - '.$_SESSION['userlevel'];
         }
         else{
           header("Location: index.php");
         }
     ?>
 <body>
-	<?php if($_SESSION['userlevel']!=3){
+  <?php if($_SESSION['userlevel']!=3){
         header("Location: home.php");
     }?>
-	<?php
-	    $con = mysqli_connect("localhost","root");
+  <?php
+      $con = mysqli_connect("localhost","root");
       if(! $con ) {
         die('Could not connect: ' . mysqli_error());
       }
-	    mysqli_select_db($con, "bughound_test1");
-	    $query = "SELECT * FROM programs";
-	    mysqli_query($con, $query);    
-	    $result = mysqli_query($con, $query);
-	    if (mysqli_num_rows($result) > 0) {     
-	?>
+      mysqli_select_db($con, "bughound_test1");
+      $query = "SHOW TABLES FROM bughound_test1";
+      mysqli_query($con, $query);    
+      $result = mysqli_query($con, $query);
+      if (mysqli_num_rows($result) > 0) {     
+  ?>
 
       <?php if(isset($_SESSION['username'])): ?>
         <ul class="nav justify-content-end">
@@ -61,28 +52,34 @@
           </li>
         </ul>
       <?php endif; ?>
-	  <div class="container">
-	  <h2 class="text-center my-4">Add Area</h2>
-	  <div id="newBugForm" class="container">
-	      <form action="addarea2.php" method="post">
-	          <div class="row">
-	              <div class="col-12 col-md-4">
-	                 <div class="form-group">
-                      	<label for="program">Program</label>
-                      	<select name="prog_id" class="form-control" id="program">                      
-			              <?php	while($row = mysqli_fetch_assoc($result)) {  ?>
-                  			<option value="<?php echo $row["prog_id"] ?>"><?php echo $row["program"] ?><h6>&nbsp-</h6> <?php echo $row["program_version"] ?><h6>&nbsp-</h6> <?php echo $row["program_release"] ?></option>        
-					      <?php }  ?>
- 						</select>
+    <div class="container">
+    <h2 class="text-center my-4">Export Area</h2>
+    <div id="newBugForm" class="container">
+        <form action="export_to.php" method="post">
+            <div class="row">
+                <div class="col-12 col-md-4">
+                   <div class="form-group">
+                        <label for="program">Table</label>
+                        <select name="table_select" class="form-control" >                      
+                    <?php while($row = mysqli_fetch_assoc($result)) {  ?>
+                         <option > <?php echo $row[0]; ?> </option> 
+                        <option value="areas">areas</option>
+                        <option value="employees">employees</option>
+                        <option value="programs">programs</option>
 
-      					<label for="name" style="margin-top: 15px;">Area Name</label>
-                     <input id="area" type="text" class="form-control update" name="area" value="<?php echo $row["area"]; ?>" required maxlength='32'>
+                <?php }  ?>
+            </select>
 
-      				</div>
-		            <button class="btn btn-primary w-80"  style="float: right margin-left: 15px;" type="submit" >Submit</button>
-		            <button class="btn btn-primary w-80"  style="float: right; margin-left: 15px;" type="button" onclick="go_back()">Back</button>
-            	</div>            
-            	</div>
+                <label for="name" style="margin-top: 15px;">Type</label>
+                <select class="form-control" name="type_select">
+                  <option value="ascii">ASCII</option>
+                  <option value="xml">XML</option>
+                </select>
+              </div>
+                <button class="btn btn-primary w-80" name="export" style="float: right margin-left: 15px;" type="submit">Submit</button>
+                <button class="btn btn-primary w-80"  style="float: right; margin-left: 5px;" type="button" onclick="go_back()">Back</button>
+              </div>            
+              </div>
             </form>
           </div>              
         </div>

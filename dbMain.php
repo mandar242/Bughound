@@ -25,7 +25,7 @@
 		</script>
 		<table>
 			<tr><td>
-				<input type="button" onclick="window.location.href = 'dispEmployee.php';" class="btn btn-primary btn-lg" value="Employees", id="bug"/>		
+				<input type="button" onclick="window.location.href = 'empMain.php';" class="btn btn-primary btn-lg" value="Employees", id="bug"/>		
 				&nbsp
 				&nbsp
 				&nbsp

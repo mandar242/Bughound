@@ -11,6 +11,22 @@
 <?php   
         
         session_start();
+        if(isset($_SESSION['last_action']))
+        {
+          if(time() - $_SESSION['last_action']>1800)
+          {
+            session_unset();
+            session_destroy();  
+          }
+        }
+        $_SESSION['last_action'] = time();
+        if(isset($_SESSION['username'])){
+             'Username - '.$_SESSION['username']." ";
+             'User Level - '.$_SESSION['userlevel'];
+        }
+        else{
+          header("Location: index.php");
+        }
     ?>
 <body>   
     <?php if($_SESSION['userlevel']!=3){
@@ -20,13 +36,12 @@
     <div class="jumbotron">
     <div class="container">
     
-              <h2>Programs</h2>
+              <h2>Employee List</h2>
        <table border ="3">
             <tr>
-              <th>Program ID</th>
-              <th>Program Name</th>
-              <th>Program Release</th>
-              <th>Program Version</th>
+              <th>Employee ID</th>
+              <th>Employee Name</th>
+              <th>User Name</th>
               <th>Click To Update</th>
               <th>Click To Delete</th>
             </tr>
@@ -38,7 +53,7 @@
                 die('Could not connect: ' . mysqli_error());
               }
               mysqli_select_db($con, "bughound_test1");              
-              $query = "SELECT * FROM programs";    
+              $query = "SELECT * FROM employees";    
               mysqli_query($con, $query);
               $result = mysqli_query($con, $query);
             ?>
@@ -48,15 +63,13 @@
               while($row = mysqli_fetch_assoc($result)) {            
                ?>
                <tr>
-                <td><?php echo $row["prog_id"] ?> </td>
-                   <td><?php echo $row["program"] ?> </td>
-                   <td><?php echo $row["program_release"] ?> </td>
-                   <td><?php echo $row["program_version"] ?> </td>
+                <td><?php echo $row["emp_id"] ?> </td>
+                   <td><?php echo $row["name"] ?> </td>
+                   <td><?php echo $row["username"] ?> </td>
                   <td> 
-    <button type="submit" name="update" class="btn btn-primary btn-lg" onclick="dance('<?php echo $row["prog_id"]?>');">Update</button></td>
+                  <button type="submit" name="update" class="btn btn-primary btn-lg" onclick="dance('<?php echo $row["emp_id"]?>');">Update</button></td>
                   <td> 
-
-    <button type="submit" name="delete_prog" class="btn btn-primary btn-lg" onclick="dance2('<?php echo $row["prog_id"]?>');" >Delete</button></td>
+                    <button type="submit" name="delete_emp" onclick="dance2('<?php echo $row["emp_id"]?>');" class="btn btn-primary btn-lg">Delete</button></td>
                </tr>
                <?php
             }
@@ -72,10 +85,10 @@
         </table>
         <br><hr>
         <div id="addempForm">
-                <label for="name"></label>
-                 <button class="btn btn-primary btn-lg" type="button" onclick="go_addemp()"> Add Program</button>
-                <button class="btn btn-primary btn-lg" type="button" onclick="go_back()">Home</button>
-                <button class="btn btn-primary btn-lg" type="button" onclick="go_back_dbhome()">DB Home</button>
+                <label for="name" style="font-size: 35px;margin-right: 5px;"></label>
+                 <button class="btn btn-primary btn-lg" style="margin-left: 20px;" type="button" onclick="go_addemp()"> Add New Employee
+                <button class="btn btn-primary btn-lg" style="margin-left: 20px" type="button" onclick="go_back()">Home</button>
+                <button class="btn btn-primary btn-lg" style="margin-left: 20px" type="button" onclick="go_back_dbhome()">DB Home</button>
 
                 <div class="jumbotron">
     <div class="container">
@@ -97,12 +110,12 @@
        function go_backhome(){
         window.location.assign("home.php");
       }
-      function dance(prog_id) {
-        window.open("program_edit.php/?prog_id="+prog_id,"_self");
+      function dance(emp_id) {
+        window.open("editemp.php/?emp_id="+emp_id,"_self");
         // body...
       }
-    function dance2(prog_id) {
-        window.open("editprogram.php/?prog_id="+prog_id,"_self");
+      function dance2(emp_id) {
+        window.open("deleteemphidden.php/?emp_id="+emp_id,"_self");
         // body...
       }
       </script>

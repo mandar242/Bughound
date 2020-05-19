@@ -262,6 +262,20 @@
             </form>
         </div>
     </div>
+
+
+
+
+    <?php
+                $first = $_POST['first'];
+                $last = $_POST['last'];
+                printf("You entered %s %s as your name.<p>",$first,$last);
+                    $con = mysqli_connect("localhost","root");
+                    mysqli_select_db($con, "lab2");
+                    $query = "INSERT INTO people (first, last) VALUES ('".$first."','".$last."')";
+                    echo $query;
+                    mysqli_query($con, $query);
+            ?>
     
 
 
